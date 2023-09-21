@@ -3,6 +3,10 @@ import fa.State;
 import java.util.Set;
 
 public class DFA implements DFAInterface{
+    private Set<DFAState> states;
+    private Set<DFAState> finalStates;
+    private DFAState startState;
+    private Set<Character> alphabet;
 
     @Override
     public boolean addState(String name) {
@@ -41,6 +45,11 @@ public class DFA implements DFAInterface{
 
     @Override
     public boolean isFinal(String name) {
+        for(DFAState c: states) {
+            if(c == name) {
+                return true;
+            }
+        }
         return false;
     }
 
