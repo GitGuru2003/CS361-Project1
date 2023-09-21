@@ -172,6 +172,50 @@ public class DFA implements DFAInterface{
      * @return String representation of the DFA
      */
     public String toString() {
-        return "";
+        StringBuilder builder = new StringBuilder();
+
+        //Generating Q
+        builder.append("Q = {");
+        for(DFAState c: states) {
+            builder.append(" " + c.getName());
+        }
+        builder.append(" }\n");
+
+        //Generating Sigma
+        builder.append("Sigma = {");
+        for(Character c: alphabet) {
+            builder.append(" " + c);
+        }
+        builder.append(" }\n");
+
+        //Generating Delta
+        builder.append("Delta =" + "\n");
+        builder.append("\t");
+        for(Character c: alphabet) {
+            builder.append("\t" + c);
+        }
+        builder.append("\t\n");
+
+        for(DFAState c: states) {
+            builder.append("\t" + c.getName());
+            for(Character d: alphabet) {
+                //find transitions for all aphabet here and loop
+                //builder.append("\t" + d.??)
+            }
+            builder.append("\n");
+        }
+
+        //Generating q0
+        builder.append("q0 =");
+        builder.append(" " + startState.getName() + "\n");
+
+        //Generating F
+        builder.append("F = {");
+        for(DFAState c: finalStates) {
+            builder.append(" " + c.getName());
+        }
+        builder.append(" }\n");
+
+        return builder.toString();
     }
 }
