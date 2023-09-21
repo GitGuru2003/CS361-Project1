@@ -7,7 +7,7 @@ public abstract class State {
 	 * the concrete class constructor.
 	 * @author elenasherman
 	 */
-	private String name;
+	protected String name;
 	
 	public State() {
 		

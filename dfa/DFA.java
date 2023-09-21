@@ -20,10 +20,17 @@ public class DFA implements DFAInterface{
     }
 
 
-    @Override
+    /**
+     * Adds a state to the FA instance
+     * @param name is the label of the state
+     * @return true if a new state created successfully and false if there is already state with such name
+     */
     public boolean addState(String name) {
         DFAState newState = new DFAState(name);
         states.add(newState);
+        for(DFAState c: states) {
+            return c.getName().equals(name);
+        }
 
         return false;
     }
