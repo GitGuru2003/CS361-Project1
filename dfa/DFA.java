@@ -69,8 +69,20 @@ public class DFA implements DFAInterface{
         alphabet.add(symbol);
     }
 
-    @Override
+    /**
+     * Simulates a DFA on input s to determine
+     * whether the DFA accepts s.
+     * @param s - the input string
+     * @return true if s in the language of the DFA and false otherwise
+     */
     public boolean accepts(String s) {
+        DFAState currentState = startState;
+        for(int i=0; i<s.length(); i++) {
+
+        }
+        if(finalStates.contains(currentState)) {
+            return true;
+        }
         return false;
     }
 
