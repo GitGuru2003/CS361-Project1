@@ -31,7 +31,6 @@ public class DFA implements DFAInterface{
         for(DFAState c: states) {
             return c.getName().equals(name);
         }
-
         return false;
     }
 
