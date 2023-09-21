@@ -20,6 +20,9 @@ public class DFA implements DFAInterface{
 
     @Override
     public boolean addState(String name) {
+        DFAState newState = new DFAState(name);
+        states.add(newState);
+
         return false;
     }
 
