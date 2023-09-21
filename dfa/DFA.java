@@ -206,7 +206,7 @@ public class DFA implements DFAInterface{
             builder.append("\t" + c.getName());
             for(Character d: alphabet) {
                 //find transitions for all aphabet here and loop
-                //builder.append("\t" + d.??)
+                //builder.append("\t" + c.getToState(d));
             }
             builder.append("\n");
         }
