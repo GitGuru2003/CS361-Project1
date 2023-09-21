@@ -77,19 +77,29 @@ public class DFA implements DFAInterface{
 
     }
 
-    @Override
-    //FIXME
+    /**
+     * checks whether a state is a final state
+     * @param name the name of the state
+     * @return boolean - true if the state is a final state, false if not.
+     */
     public boolean isFinal(String name) {
         for(DFAState c: states) {
-            if(c == name) {
+            if(c.getName().equals(name)) {
                 return true;
             }
         }
         return false;
     }
 
-    @Override
+    /**
+     * checks whether a state is a start state or not.
+     * @param name the name of the state
+     * @return boolean true if the state is a start state, false if not.
+     */
     public boolean isStart(String name) {
+        if(startState.getName().equals(name)) {
+            return true;
+        }
         return false;
     }
 
