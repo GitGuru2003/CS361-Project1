@@ -2,6 +2,7 @@ package fa.dfa;
 import fa.State;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class DFA implements DFAInterface{
@@ -59,7 +60,7 @@ public class DFA implements DFAInterface{
      */
     public State getState(String name) {
         for(DFAState checking: states) {
-            if(checking.getName() == name) {
+            if(Objects.equals(checking.getName(), name)) {
                 return checking;
             }
         }
