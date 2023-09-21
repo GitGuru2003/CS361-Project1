@@ -1,7 +1,8 @@
 package fa.dfa;
 import fa.State;
+
+import java.util.HashSet;
 import java.util.Set;
-import java.util.jar.Attributes;
 
 public class DFA implements DFAInterface{
     private Set<DFAState> states;
@@ -9,18 +10,18 @@ public class DFA implements DFAInterface{
     private DFAState startState;
     private Set<Character> alphabet;
 
-
-    public DFA(){
-
-
-
+    public DFA() {
+        startState = null;
+        states = new HashSet<>();
+        finalStates = new HashSet<>();
+        alphabet = new HashSet<>();
     }
+
+
     @Override
     public boolean addState(String name) {
-        DFAState newState = new DFAState(name);
-        states.add(newState);
         return false;
-     }
+    }
 
     @Override
     public boolean setFinal(String name) {
@@ -53,6 +54,7 @@ public class DFA implements DFAInterface{
     }
 
     @Override
+    //FIXME
     public boolean isFinal(String name) {
         for(DFAState c: states) {
             if(c == name) {
