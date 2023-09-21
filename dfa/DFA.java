@@ -79,6 +79,7 @@ public class DFA implements DFAInterface{
         }
 
 
+        return null;
     }
 
     /**
