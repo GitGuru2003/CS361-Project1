@@ -40,7 +40,11 @@ public class DFA implements DFAInterface{
      * @return true if successful and false if no state with such name exists
      */
     public boolean setFinal(String name) {
-
+        if(states.contains(name)) {
+            DFAState temp = (DFAState) getState(name);
+            finalStates.add(temp);
+            return true;
+        }
         return false;
     }
 
