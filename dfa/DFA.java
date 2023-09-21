@@ -1,7 +1,7 @@
 package fa.dfa;
 import fa.State;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,9 +13,9 @@ public class DFA implements DFAInterface{
 
     public DFA() {
         startState = null;
-        states = new HashSet<>();
-        finalStates = new HashSet<>();
-        alphabet = new HashSet<>();
+        states = new LinkedHashSet<>();
+        finalStates = new LinkedHashSet<>();
+        alphabet = new LinkedHashSet<>();
 
     }
 
