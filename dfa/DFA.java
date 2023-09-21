@@ -62,10 +62,12 @@ public class DFA implements DFAInterface{
         for(DFAState checking: states) {
             if(Objects.equals(checking.getName(), name)) {
                 return checking;
+            }else{
+                return null;
             }
         }
 
-        return null;
+
     }
 
     @Override
