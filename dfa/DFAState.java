@@ -11,4 +11,12 @@ public class DFAState extends State {
     public DFAState() {
         //super(name);
     }
+
+    public void addToState(char symb, DFAState state) {
+        transitionList.put(symb, state);
+    }
+
+    public DFAState getToState(char symb) {
+        return transitionList.get(symb);
+    }
 }

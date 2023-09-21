@@ -147,12 +147,9 @@ public class DFA implements DFAInterface{
 
         for (DFAState state : states) {
             if(state.getName().equals(fromState)){
-               // state.toState()
+                state.addToState(onSymb, (DFAState) getState(toState));
             }
         }
-
-
-
         return false;
     }
 
