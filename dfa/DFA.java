@@ -15,6 +15,7 @@ public class DFA implements DFAInterface{
         states = new HashSet<>();
         finalStates = new HashSet<>();
         alphabet = new HashSet<>();
+
     }
 
 
@@ -51,8 +52,18 @@ public class DFA implements DFAInterface{
         return null;
     }
 
-    @Override
+    /**
+     * Returns state with the given name, or null if none exists
+     * @param name of a state
+     * @return state object or null
+     */
     public State getState(String name) {
+        for(DFAState checking: states) {
+            if(checking.getName() == name) {
+                return checking;
+            }
+        }
+
         return null;
     }
 
