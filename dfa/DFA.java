@@ -101,10 +101,7 @@ public class DFA implements DFAInterface{
      * @return boolean true if the state is a start state, false if not.
      */
     public boolean isStart(String name) {
-        if(startState.getName().equals(name)) {
-            return true;
-        }
-        return false;
+        return startState.getName().equals(name);
     }
 
     /**
