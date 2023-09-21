@@ -34,8 +34,13 @@ public class DFA implements DFAInterface{
         return false;
     }
 
-    @Override
+    /**
+     * Marks an existing state as an accepting state
+     * @param name is the label of the state
+     * @return true if successful and false if no state with such name exists
+     */
     public boolean setFinal(String name) {
+
         return false;
     }
 
@@ -92,8 +97,18 @@ public class DFA implements DFAInterface{
         return false;
     }
 
-    @Override
+    /**
+     * Adds the transition to the DFA's delta data structure
+     * @param fromState is the label of the state where the transition starts
+     * @param toState is the label of the state where the transition ends
+     * @param onSymb is the symbol from the DFA's alphabet.
+     * @return true if successful and false if one of the states don't exist or the symbol in not in the alphabet
+     */
     public boolean addTransition(String fromState, String toState, char onSymb) {
+
+
+
+
         return false;
     }
 
