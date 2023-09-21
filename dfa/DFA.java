@@ -142,4 +142,24 @@ public class DFA implements DFAInterface{
     public DFA swap(char symb1, char symb2) {
         return null;
     }
+
+    /**
+     * Construct the textual representation of the DFA, for example
+     * A simple two state DFA
+     * Q = { a b }
+     * Sigma = { 0 1 }
+     * delta =
+     *		0	1
+     *	a	a	b
+     *	b	a	b
+     * q0 = a
+     * F = { b }
+     *
+     * The order of the states and the alphabet is the order
+     * in which they were instantiated in the DFA.
+     * @return String representation of the DFA
+     */
+    public String toString() {
+        return "";
+    }
 }
