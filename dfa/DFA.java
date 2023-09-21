@@ -61,9 +61,12 @@ public class DFA implements DFAInterface{
         return false;
     }
 
-    @Override
+    /**
+     * Adds a symbol to Sigma
+     * @param symbol to add to the alphabet set
+     */
     public void addSigma(char symbol) {
-
+        alphabet.add(symbol);
     }
 
     @Override
@@ -71,9 +74,12 @@ public class DFA implements DFAInterface{
         return false;
     }
 
-    @Override
+    /**
+     * Getter for Sigma
+     * @return the alphabet of FA
+     */
     public Set<Character> getSigma() {
-        return null;
+        return alphabet;
     }
 
     /**
