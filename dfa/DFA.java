@@ -25,6 +25,7 @@ public class DFA implements DFAInterface{
      * @param name is the label of the state
      * @return true if a new state created successfully and false if there is already state with such name
      */
+
     public boolean addState(String name) {
         DFAState newState = new DFAState(name);
         states.add(newState);
@@ -144,6 +145,11 @@ public class DFA implements DFAInterface{
      */
     public boolean addTransition(String fromState, String toState, char onSymb) {
 
+        for (DFAState state : states) {
+            if(state.getName().equals(fromState)){
+               // state.toState()
+            }
+        }
 
 
 
