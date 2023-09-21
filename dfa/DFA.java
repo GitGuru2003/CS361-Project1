@@ -48,8 +48,16 @@ public class DFA implements DFAInterface{
         return false;
     }
 
-    @Override
+    /**
+     * Adds the initial state to the DFA instance
+     * @param name is the label of the start state
+     * @return true if successful and false if no state with such name exists
+     */
     public boolean setStart(String name) {
+        if (startState == null) {
+            startState = (DFAState) getState(name);
+            return true;
+        }
         return false;
     }
 
