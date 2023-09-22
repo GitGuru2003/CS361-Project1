@@ -27,12 +27,10 @@ public class DFA implements DFAInterface{
      */
 
     public boolean addState(String name) {
+        if(states.contains((DFAState) getState(name)));
         DFAState newState = new DFAState(name);
         states.add(newState);
-        for(DFAState c: states) {
-            return c.getName().equals(name);
-        }
-        return false;
+        return true;
     }
 
     /**
@@ -41,7 +39,7 @@ public class DFA implements DFAInterface{
      * @return true if successful and false if no state with such name exists
      */
     public boolean setFinal(String name) {
-        if(states.contains(name)) {
+        if(states.contains((DFAState) getState(name))) {
             DFAState temp = (DFAState) getState(name);
             finalStates.add(temp);
             return true;
@@ -203,7 +201,7 @@ public class DFA implements DFAInterface{
             builder.append("\t" + c.getName());
             for(Character d: alphabet) {
                 //find transitions for all aphabet here and loop
-                //builder.append("\t" + c.getToState(d));
+                builder.append("\t" + c.getToState(d));
             }
             builder.append("\n");
         }
