@@ -1,4 +1,4 @@
-package test.dfa;
+package fa.test.dfa;
 
 import static org.junit.Assert.*;
 

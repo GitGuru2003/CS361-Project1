@@ -27,7 +27,9 @@ public class DFA implements DFAInterface{
      */
 
     public boolean addState(String name) {
-        if(states.contains((DFAState) getState(name)));
+        if(states.contains((DFAState) getState(name))) {
+            return false;
+        }
         DFAState newState = new DFAState(name);
         states.add(newState);
         return true;
@@ -39,10 +41,11 @@ public class DFA implements DFAInterface{
      * @return true if successful and false if no state with such name exists
      */
     public boolean setFinal(String name) {
-        if(states.contains((DFAState) getState(name))) {
-            DFAState temp = (DFAState) getState(name);
-            finalStates.add(temp);
+        for(DFAState c: states) {
+            if(c.getName().equals(name)) {
+            finalStates.add(c);
             return true;
+            }
         }
         return false;
     }
@@ -142,10 +145,12 @@ public class DFA implements DFAInterface{
      * @return true if successful and false if one of the states don't exist or the symbol in not in the alphabet
      */
     public boolean addTransition(String fromState, String toState, char onSymb) {
-
+        if(!alphabet.contains(onSymb)){return false;}
+        //if(!states.contains(getState(toState))){return false;}
         for (DFAState state : states) {
             if(state.getName().equals(fromState)){
                 state.addToState(onSymb, (DFAState) getState(toState));
+                return true;
             }
         }
         return false;
