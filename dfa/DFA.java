@@ -27,7 +27,7 @@ public class DFA implements DFAInterface{
      */
 
     public boolean addState(String name) {
-        if(states.contains((DFAState) getState(name))) {
+        if(states.contains(getState(name))) {
             return false;
         }
         DFAState newState = new DFAState(name);
@@ -105,12 +105,8 @@ public class DFA implements DFAInterface{
         for(DFAState checking: states) {
             if(Objects.equals(checking.getName(), name)) {
                 return checking;
-            }else{
-                return null;
             }
         }
-
-
         return null;
     }
 
@@ -146,7 +142,8 @@ public class DFA implements DFAInterface{
      */
     public boolean addTransition(String fromState, String toState, char onSymb) {
         if(!alphabet.contains(onSymb)){return false;}
-        //if(!states.contains(getState(toState))){return false;}
+        if(!states.contains(getState(fromState))){return false;}
+        if(!states.contains(getState(toState))){return false;}
         for (DFAState state : states) {
             if(state.getName().equals(fromState)){
                 state.addToState(onSymb, (DFAState) getState(toState));
@@ -158,6 +155,11 @@ public class DFA implements DFAInterface{
 
     @Override
     public DFA swap(char symb1, char symb2) {
+//        for(DFAState c: states) {
+//            if(c.getTransitionList().containsKey(symb1) || c.getTransitionList().containsKey(symb2)) {
+//
+//            }
+//        }
         return null;
     }
 

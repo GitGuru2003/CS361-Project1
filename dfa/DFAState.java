@@ -19,4 +19,6 @@ public class DFAState extends State {
     public DFAState getToState(char symb) {
         return transitionList.get(symb);
     }
+
+    public HashMap<Character,DFAState> getTransitionList(){return this.transitionList;}
 }
