@@ -160,7 +160,6 @@ public class DFA implements DFAInterface{
         for(DFAState c: states) {
             Set<Character> tl = c.getTransitionList().keySet();
             HashMap<Character, DFAState> newMap = new HashMap<Character, DFAState>();
-            System.out.println(tl);
             for(Character d: tl) {
                 DFAState oldToState = c.getToState(d);
                 if(d == symb1) {
@@ -206,7 +205,7 @@ public class DFA implements DFAInterface{
         StringBuilder builder = new StringBuilder();
 
         //Generating Q
-        builder.append("Q = {");
+        builder.append(" Q = {");
         for(DFAState c: states) {
             builder.append(" " + c.getName());
         }
@@ -220,7 +219,7 @@ public class DFA implements DFAInterface{
         builder.append(" }\n");
 
         //Generating Delta
-        builder.append("Delta =" + "\n");
+        builder.append("delta =" + "\n");
         builder.append("\t");
         for(Character c: alphabet) {
             builder.append("\t" + c);
@@ -245,7 +244,7 @@ public class DFA implements DFAInterface{
         for(DFAState c: finalStates) {
             builder.append(" " + c.getName());
         }
-        builder.append(" }\n");
+        builder.append(" }");
 
         return builder.toString();
     }
