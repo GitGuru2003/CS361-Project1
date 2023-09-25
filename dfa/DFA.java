@@ -1,6 +1,7 @@
 package fa.dfa;
 import fa.State;
 
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -80,7 +81,7 @@ public class DFA implements DFAInterface{
     public boolean accepts(String s) {
         DFAState currentState = startState;
         for(int i=0; i<s.length(); i++) {
-
+            currentState = currentState.getToState(s.charAt(i));
         }
         if(finalStates.contains(currentState)) {
             return true;
@@ -155,12 +156,34 @@ public class DFA implements DFAInterface{
 
     @Override
     public DFA swap(char symb1, char symb2) {
-//        for(DFAState c: states) {
-//            if(c.getTransitionList().containsKey(symb1) || c.getTransitionList().containsKey(symb2)) {
-//
-//            }
-//        }
-        return null;
+        DFA newDFA = new DFA();
+        for(DFAState c: states) {
+            Set<Character> tl = c.getTransitionList().keySet();
+            HashMap<Character, DFAState> newMap = new HashMap<Character, DFAState>();
+            System.out.println(tl);
+            for(Character d: tl) {
+                DFAState oldToState = c.getToState(d);
+                if(d == symb1) {
+                    newMap.put(symb2, oldToState);
+                } else if(d == symb2) {
+                    newMap.put(symb1, oldToState);
+                } else {
+                    newMap.put(d, oldToState);
+                }
+            }
+            newDFA.addStateWithTransitions(c, newMap);
+        }
+        return newDFA;
+    }
+
+    private boolean addStateWithTransitions(DFAState state, HashMap<Character, DFAState> newMap) {
+        if(states.contains(state)) {
+            return false;
+        }
+        DFAState newState = new DFAState(state.getName());
+        states.add(newState);
+        newState.addTransitionList(newMap);
+        return true;
     }
 
     /**
