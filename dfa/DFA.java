@@ -157,6 +157,14 @@ public class DFA implements DFAInterface{
     @Override
     public DFA swap(char symb1, char symb2) {
         DFA newDFA = new DFA();
+        for(DFAState c: states){
+            newDFA.addState(c.getName());
+        }
+        for(DFAState c: finalStates){
+            newDFA.finalStates.add(c);
+        }
+        newDFA.startState = (DFAState) newDFA.getState(startState.getName());
+
         for(DFAState c: states) {
             Set<Character> tl = c.getTransitionList().keySet();
             HashMap<Character, DFAState> newMap = new HashMap<Character, DFAState>();
@@ -172,6 +180,8 @@ public class DFA implements DFAInterface{
             }
             newDFA.addStateWithTransitions(c, newMap);
         }
+        System.out.println(toString());
+        System.out.println(newDFA.toString());
         return newDFA;
     }
 
