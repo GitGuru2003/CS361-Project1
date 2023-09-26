@@ -1,4 +1,4 @@
-package fa.fa;
+package fa;
 
 import java.util.Set;
 

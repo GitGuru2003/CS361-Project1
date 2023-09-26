@@ -173,29 +173,31 @@ public class DFA implements DFAInterface{
             Set<Character> tl = c.getTransitionList().keySet();
             HashMap<Character, DFAState> newMap = new HashMap<Character, DFAState>();
             for(Character d: tl) {
-                DFAState oldToState = c.getToState(d);
+                DFAState toState = c.getToState(d);
                 if(d == symb1) {
-                    newMap.put(symb2, oldToState);
+                    newMap.put(symb2, toState);
                 } else if(d == symb2) {
-                    newMap.put(symb1, oldToState);
+                    newMap.put(symb1, toState);
                 } else {
-                    newMap.put(d, oldToState);
+                    newMap.put(d, toState);
                 }
             }
-            newDFA.addStateWithTransitions((newDFA.c, newMap);
+            String addName = c.getName();
+            newDFA.addTransition((DFAState)newDFA.getState(addName), newMap);
         }
         System.out.println(toString());
         System.out.println(newDFA.toString());
         return newDFA;
     }
 
-    private boolean addStateWithTransitions(DFAState state, HashMap<Character, DFAState> newMap) {
-        if(states.contains(state)) {
-            return false;
-        }
-        DFAState addState = (DFAState) getState(state.getName());
+    private boolean addTransition(DFAState state, HashMap<Character, DFAState> newMap) {
+        // if(states.contains(state)) {
+        //     return false;
+        // }
+        //DFAState newState = new DFAState(state.getName());
         //states.add(newState);
-        addState.addTransitionList(newMap);
+        DFAState newState = state;
+        newState.addTransitionList(newMap);
         return true;
     }
 
