@@ -182,7 +182,7 @@ public class DFA implements DFAInterface{
                     newMap.put(d, oldToState);
                 }
             }
-            newDFA.addStateWithTransitions(c, newMap);
+            newDFA.addStateWithTransitions((newDFA.c, newMap);
         }
         System.out.println(toString());
         System.out.println(newDFA.toString());
@@ -193,9 +193,9 @@ public class DFA implements DFAInterface{
         if(states.contains(state)) {
             return false;
         }
-        DFAState newState = new DFAState(state.getName());
-        states.add(newState);
-        newState.addTransitionList(newMap);
+        DFAState addState = (DFAState) getState(state.getName());
+        //states.add(newState);
+        addState.addTransitionList(newMap);
         return true;
     }
 

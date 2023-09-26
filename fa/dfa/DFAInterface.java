@@ -1,6 +1,6 @@
 package fa.dfa;
 
-import fa.FAInterface;
+import fa.fa.FAInterface;
 
 
 public interface DFAInterface extends FAInterface{
