@@ -158,6 +158,9 @@ public class DFA implements DFAInterface{
     public DFA swap(char symb1, char symb2) {
         //testing
         DFA newDFA = new DFA();
+        for(Character c: alphabet) {
+            newDFA.alphabet.add(c);
+        }
         for(DFAState c: states){
             newDFA.addState(c.getName());
         }
