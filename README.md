@@ -12,8 +12,8 @@ framework
 
 ## Reflection
 
-This project certainly had its ups and downs. Once I was able to figure out how to implement the set structure correctly
-and wrap my head around what the Hashmap does it became a lot easier to see the project come together. 
+This project certainly had its ups and downs. Once I figured out how to implement the set structure correctly
+and wrap my head around what the Hashmap does, it became a lot easier to see the project come together. 
 The rest of the methods were written easily because they are all mostly getters and setters.
 
 At this point I had some trouble developing the addTransition and swap methods. I had an issue with the addtransition 
@@ -21,9 +21,9 @@ method where the return statements were in the wrong spot that took a couple of 
 feels a bit clunky and unoptimized. toString also gave me a bit of grief with whitespace to pass the tests, but eventually 
 that was all ironed out.
 
-I would have started this project earlier ideally, being the first project of the year I was a bit rusty with my java
-programming skills, but with a little effort and luck I quickly resharpened those skills. This was a good introduction 
-back into java for the year, and I'm looking forward to expanding on this project for project 2.
+I would have started this project earlier ideally. Being the first project of the year I was a bit rusty with my java
+programming skills, but with a little effort and luck I quickly resharpened them. This was a good introduction 
+back into java for the year, and I'm looking forward to expanding on this project for the NFA project.
 
 ## Compiling and Using
 To compile Junit on onyx use the following command:
