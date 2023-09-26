@@ -156,6 +156,7 @@ public class DFA implements DFAInterface{
 
     @Override
     public DFA swap(char symb1, char symb2) {
+        //testing
         DFA newDFA = new DFA();
         for(DFAState c: states){
             newDFA.addState(c.getName());
