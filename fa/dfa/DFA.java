@@ -165,40 +165,35 @@ public class DFA implements DFAInterface{
             newDFA.addState(c.getName());
         }
         for(DFAState c: finalStates){
-            newDFA.finalStates.add(c);
+            newDFA.setFinal(c.getName());
         }
         newDFA.startState = (DFAState) newDFA.getState(startState.getName());
 
         for(DFAState c: states) {
-            Set<Character> tl = c.getTransitionList().keySet();
-            HashMap<Character, DFAState> newMap = new HashMap<Character, DFAState>();
-            for(Character d: tl) {
-                DFAState toState = c.getToState(d);
-                if(d == symb1) {
-                    newMap.put(symb2, toState);
-                } else if(d == symb2) {
-                    newMap.put(symb1, toState);
-                } else {
-                    newMap.put(d, toState);
-                }
-            }
-            String addName = c.getName();
-            newDFA.addTransition((DFAState)newDFA.getState(addName), newMap);
+            // Set<Character> tl = c.getTransitionList().keySet();
+            String symb1goesto = c.getTransitionList().get(symb1).getName();
+            String symb2goesto = c.getTransitionList().get(symb2).getName();
+            newDFA.addTransition(c.getName(), symb1goesto, symb2);
+            newDFA.addTransition(c.getName(), symb2goesto, symb1);
+            // DFAState toState;
+            // for(Character d: tl) {
+            //     //DFAState toState = c.getToState(d);
+            //     toState = (DFAState) newDFA.getState(c.getTransitionList().get(d).getName());
+            //     // DFAState toState = (DFAState)newDFA.getState(c);
+            //     if(d == symb1) {
+            //         newMap.put(symb2, toState);
+            //     } else if(d == symb2) {
+            //         newMap.put(symb1, toState);
+            //     } else {
+            //         newMap.put(d, toState);
+            //     }
+            // }
+            // String addName = c.getName();
+            // newDFA.addTransition(toState, newMap);
         }
         System.out.println(toString());
         System.out.println(newDFA.toString());
         return newDFA;
-    }
-
-    private boolean addTransition(DFAState state, HashMap<Character, DFAState> newMap) {
-        // if(states.contains(state)) {
-        //     return false;
-        // }
-        //DFAState newState = new DFAState(state.getName());
-        //states.add(newState);
-        DFAState newState = state;
-        newState.addTransitionList(newMap);
-        return true;
     }
 
     /**
