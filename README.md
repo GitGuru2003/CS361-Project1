@@ -26,17 +26,16 @@ programming skills, but with a little effort and luck I quickly resharpened them
 back into java for the year, and I'm looking forward to expanding on this project for the NFA project.
 
 ## Compiling and Using
-To compile Junit on onyx use the following command:
+First navigate to the top-level of the directory that holds the project:
 
-    //COMMAND HERE
+To compile Junit and DFATest on onyx use the following command:
 
-To compile program on Onyx use the following command:
+    javac -cp .:/usr/share/java/junit.jar ./test/dfa/DFATest.java
 
-    //COMMAND HERE
+To run the tests to check functionality use this command on a single line:
 
-To run the tests to check functionality use this command:
-
-    //COMMAND HERE
+    java -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest/core.jar
+org.junit.runner.JUnitCore test.dfa.DFATest
 
 ## Sources used
 
