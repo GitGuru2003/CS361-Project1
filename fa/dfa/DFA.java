@@ -118,7 +118,7 @@ public class DFA implements DFAInterface{
      * @return boolean - true if the state is a final state, false if not.
      */
     public boolean isFinal(String name) {
-        for(DFAState c: states) {
+        for(DFAState c: finalStates) {
             if(c.getName().equals(name)) {
                 return true;
             }
