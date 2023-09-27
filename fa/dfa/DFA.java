@@ -1,7 +1,14 @@
+/**
+ * @author jake lammers
+ * @author munib ahmed
+ * 9/27/23
+ * 
+ * This program implements a dynamic representation of deterministic finite automata 
+ * using DFA objects and Set implementation to store states.
+ */
 package fa.dfa;
 import fa.State;
 
-import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -12,6 +19,9 @@ public class DFA implements DFAInterface{
     private DFAState startState;
     private Set<Character> alphabet;
 
+    /**
+     *Constructs an empty DFA object that is ready to be built.
+     */
     public DFA() {
         startState = null;
         states = new LinkedHashSet<>();
@@ -57,7 +67,6 @@ public class DFA implements DFAInterface{
      * @return true if successful and false if no state with such name exists
      */
     public boolean setStart(String name) {
-        //if (startState == null) {
         if(states.contains(getState(name))) {
             startState = (DFAState) getState(name);
             return true;
@@ -143,11 +152,11 @@ public class DFA implements DFAInterface{
      * @return true if successful and false if one of the states don't exist or the symbol in not in the alphabet
      */
     public boolean addTransition(String fromState, String toState, char onSymb) {
-        if(!alphabet.contains(onSymb)){return false;}
-        if(!states.contains(getState(fromState))){return false;}
-        if(!states.contains(getState(toState))){return false;}
+        if(!alphabet.contains(onSymb)) {return false;}
+        if(!states.contains(getState(fromState))) {return false;}
+        if(!states.contains(getState(toState))) {return false;}
         for (DFAState state : states) {
-            if(state.getName().equals(fromState)){
+            if(state.getName().equals(fromState)) {
                 state.addToState(onSymb, (DFAState) getState(toState));
                 return true;
             }
@@ -155,42 +164,32 @@ public class DFA implements DFAInterface{
         return false;
     }
 
-    @Override
+    /**
+	 * Creates a deep copy of this DFA
+	 * which transitions labels are
+	 * swapped between symbols symb1
+	 * and symb2.
+	 * @return a copy of this DFA
+	 */
     public DFA swap(char symb1, char symb2) {
         //testing
         DFA newDFA = new DFA();
         for(Character c: alphabet) {
             newDFA.alphabet.add(c);
         }
-        for(DFAState c: states){
+        for(DFAState c: states) {
             newDFA.addState(c.getName());
         }
-        for(DFAState c: finalStates){
+        for(DFAState c: finalStates) {
             newDFA.setFinal(c.getName());
         }
         newDFA.startState = (DFAState) newDFA.getState(startState.getName());
 
         for(DFAState c: states) {
-            // Set<Character> tl = c.getTransitionList().keySet();
             String symb1goesto = c.getTransitionList().get(symb1).getName();
             String symb2goesto = c.getTransitionList().get(symb2).getName();
             newDFA.addTransition(c.getName(), symb1goesto, symb2);
             newDFA.addTransition(c.getName(), symb2goesto, symb1);
-            // DFAState toState;
-            // for(Character d: tl) {
-            //     //DFAState toState = c.getToState(d);
-            //     toState = (DFAState) newDFA.getState(c.getTransitionList().get(d).getName());
-            //     // DFAState toState = (DFAState)newDFA.getState(c);
-            //     if(d == symb1) {
-            //         newMap.put(symb2, toState);
-            //     } else if(d == symb2) {
-            //         newMap.put(symb1, toState);
-            //     } else {
-            //         newMap.put(d, toState);
-            //     }
-            // }
-            // String addName = c.getName();
-            // newDFA.addTransition(toState, newMap);
         }
         System.out.println(toString());
         System.out.println(newDFA.toString());
