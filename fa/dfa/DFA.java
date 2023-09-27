@@ -57,7 +57,8 @@ public class DFA implements DFAInterface{
      * @return true if successful and false if no state with such name exists
      */
     public boolean setStart(String name) {
-        if (startState == null) {
+        //if (startState == null) {
+        if(states.contains(getState(name))) {
             startState = (DFAState) getState(name);
             return true;
         }
