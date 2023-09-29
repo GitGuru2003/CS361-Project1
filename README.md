@@ -34,8 +34,7 @@ To compile Junit and DFATest on onyx use the following command:
 
 To run the tests to check functionality use this command on a single line:
 
-    java -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest/core.jar
-org.junit.runner.JUnitCore test.dfa.DFATest
+    java -cp .:/usr/share/java/junit.jar:/usr/share/java/hamcrest/core.jar org.junit.runner.JUnitCore test.dfa.DFATest
 
 ## Sources used
 
