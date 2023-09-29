@@ -1,7 +1,8 @@
 # Project #1: DFA
 
 * Author: Jake Lammers, Munib Ahmed
-* Class: CS361 Section # //FIXME
+* Class: CS361 Section # 001
+* 
 * Semester: Fall 2023
 
 ## Overview
