@@ -2,7 +2,6 @@
 
 * Author: Jake Lammers, Munib Ahmed
 * Class: CS361 Section # 001
-* 
 * Semester: Fall 2023
 
 ## Overview
