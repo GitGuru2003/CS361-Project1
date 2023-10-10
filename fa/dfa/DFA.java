@@ -9,6 +9,7 @@
 package fa.dfa;
 import fa.State;
 
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -191,8 +192,15 @@ public class DFA implements DFAInterface{
             newDFA.addTransition(c.getName(), symb1goesto, symb2);
             newDFA.addTransition(c.getName(), symb2goesto, symb1);
         }
-        System.out.println(toString());
-        System.out.println(newDFA.toString());
+        for(DFAState c: newDFA.states) {
+            if(c.getTransitionList() == null) {
+                System.out.println("add transitions here");
+            }
+        }
+        //add non-swap transisitons.
+        //implement jUnit tests for functionality.
+        //fix before NFA
+
         return newDFA;
     }
 

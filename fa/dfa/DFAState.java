@@ -58,4 +58,8 @@ public class DFAState extends State {
     public HashMap<Character,DFAState> getTransitionList() {
         return this.transitionList;
     }
+
+    public void addTransitionList(HashMap<Character,DFAState> addMap) {
+        this.transitionList = addMap;
+    }
 }
