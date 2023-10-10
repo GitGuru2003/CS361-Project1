@@ -173,20 +173,30 @@ public class DFA implements DFAInterface{
 	 * @return a copy of this DFA
 	 */
     public DFA swap(char symb1, char symb2) {
-        //testing
         DFA newDFA = new DFA();
         for(Character c: alphabet) {
             newDFA.alphabet.add(c);
         }
-        for(DFAState c: states) {
-            newDFA.addState(c.getName());
+        
+        for (DFAState state: states) {
+            newDFA.addState(state.getName());
         }
+
+        // Copy over all transitions from the previous DFA.
+        for(DFAState c: states) {
+            HashMap <Character,DFAState> temp = c.getTransitionList();
+            for (char symb: temp.keySet()) {
+                newDFA.addTransition(c.getName(), temp.get(symb).getName(), symb);
+            }
+        }
+
         for(DFAState c: finalStates) {
             newDFA.setFinal(c.getName());
         }
+
         newDFA.startState = (DFAState) newDFA.getState(startState.getName());
 
-        for(DFAState c: states) {
+        for(DFAState c: newDFA.states) {
             String symb1goesto = c.getTransitionList().get(symb1).getName();
             String symb2goesto = c.getTransitionList().get(symb2).getName();
             newDFA.addTransition(c.getName(), symb1goesto, symb2);
@@ -197,10 +207,6 @@ public class DFA implements DFAInterface{
                 System.out.println("add transitions here");
             }
         }
-        //add non-swap transisitons.
-        //implement jUnit tests for functionality.
-        //fix before NFA
-
         return newDFA;
     }
 
