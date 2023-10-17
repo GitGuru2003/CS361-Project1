@@ -18,16 +18,8 @@ public class DFAState extends State {
      * @param name - given name of the DFAState
      */
     public DFAState(String name) {
-        this.name = name;
+        super(name);
         transitionList = new HashMap<Character,DFAState>();
-    }
-
-    /**
-     * Constructs a DFAState object with a given name and an empty transition list.
-     * @param name - given name of the DFAState
-     */
-    public DFAState() {
-        //super(name);
     }
 
     /**
